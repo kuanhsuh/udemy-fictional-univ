@@ -34,7 +34,7 @@ function university_adjust_queries($query)
                 'value' => $today,
                 'type' => 'numeric'
             )
-          ));
+        ));
     }
 }
 
