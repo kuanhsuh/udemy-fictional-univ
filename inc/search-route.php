@@ -37,7 +37,8 @@ function universitySearchResults($data)
             array_push($results['professors'], array(
             'title' => get_the_title(),
             'permalink' => get_the_permalink(),
-            'postType' => get_post_type()
+            'postType' => get_post_type(),
+            'img' => get_the_post_thumbnail_url(0, 'professorLandscape')
           ));
         }
         if (get_post_type() == 'program') {
@@ -48,17 +49,18 @@ function universitySearchResults($data)
           ));
         }
         if (get_post_type() == 'event') {
+            $eventDate = new DateTime(get_field('event_date'));
             array_push($results['events'], array(
             'title' => get_the_title(),
             'permalink' => get_the_permalink(),
-            'postType' => get_post_type()
+            'month' => $eventDate->format('M'),
+            'day' => $eventDate->format('D')
           ));
         }
         if (get_post_type() == 'campus') {
             array_push($results['campuses'], array(
             'title' => get_the_title(),
             'permalink' => get_the_permalink(),
-            'postType' => get_post_type()
           ));
         }
     }
