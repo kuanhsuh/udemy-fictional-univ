@@ -28,31 +28,37 @@ function universitySearchResults($data)
         if (get_post_type() == 'post' or get_post_type() == 'page') {
             array_push($results['generalInfo'], array(
             'title' => get_the_title(),
-            'permalink' => get_the_permalink()
+            'permalink' => get_the_permalink(),
+            'postType' => get_post_type(),
+            'authorName' => "Brad",
           ));
         }
         if (get_post_type() == 'professor') {
             array_push($results['professors'], array(
             'title' => get_the_title(),
-            'permalink' => get_the_permalink()
+            'permalink' => get_the_permalink(),
+            'postType' => get_post_type()
           ));
         }
         if (get_post_type() == 'program') {
             array_push($results['programs'], array(
             'title' => get_the_title(),
-            'permalink' => get_the_permalink()
+            'permalink' => get_the_permalink(),
+            'postType' => get_post_type()
           ));
         }
         if (get_post_type() == 'event') {
             array_push($results['events'], array(
             'title' => get_the_title(),
-            'permalink' => get_the_permalink()
+            'permalink' => get_the_permalink(),
+            'postType' => get_post_type()
           ));
         }
         if (get_post_type() == 'campus') {
             array_push($results['campuses'], array(
             'title' => get_the_title(),
-            'permalink' => get_the_permalink()
+            'permalink' => get_the_permalink(),
+            'postType' => get_post_type()
           ));
         }
     }

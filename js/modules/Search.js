@@ -43,23 +43,57 @@ class Search {
   getResults() {
     // this.resultsDiv.html(`Image Real Result ${this.previousValue}`)
     // this.isSpinnerVisible = false
-
-    $.when(
-      $.getJSON(universityData.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.val()),
-      $.getJSON(universityData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.val()))
-      .then((posts, pages) => {
-      var combinedResults = posts[0].concat(pages[0])
+    $.getJSON(universityData.root_url + '/wp-json/university/v1/search?term=' + this.searchField.val(), (results) => {
       this.resultsDiv.html(`
-    <h2 class="search-overlay__section-title">General Information</h2>
-    ${combinedResults.length ? '<ul class="link-list min-list">' : '<p>No general information matches that search</p>'}
-    ${combinedResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a> ${item.type == 'post' ? `by ${item.authorName}` : ''}</li>`).join("")}
-    ${combinedResults.length ? '</ul>' : '' }
-    `
-  )
-  this.isSpinnerVisible = false
-    }, () => {
-      this.resultsDiv.html('<p>Unexpected Error, Please try again</p>')
-    });
+        <div class="row">
+          <div class="one-third">
+            <h2 class="search-overlay__section-title">General Information</h2>
+            ${results.generalInfo.length ? '<ul class="link-list min-list">' : '<p>No general information matches that search</p>'}
+    ${results.generalInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a> ${item.postType == 'post' ? `by ${item.authorName}` : ''}</li>`).join("")}
+    ${results.generalInfo.length ? '</ul>' : '' }
+          </div>
+          <div class="one-third">
+            <h2 class="search-overlay__section-title">Programs</h2>
+            ${results.programs.length ? '<ul class="link-list min-list">' : `<p>No programs matches that search. <a href="${universityData.root_url}/programs">View all program</a></p>`}
+    ${results.programs.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join("")}
+    ${results.programs.length ? '</ul>' : '' }
+            <h2 class="search-overlay__section-title">Professors</h2>
+            ${results.professors.length ? '<ul class="link-list min-list">' : '<p>No professors matches that search</p>'}
+    ${results.professors.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join("")}
+    ${results.professors.length ? '</ul>' : '' }
+          </div>
+          <div class="one-third">
+            <h2 class="search-overlay__section-title">Campuses</h2>
+            ${results.campuses.length ? '<ul class="link-list min-list">' : `<p>No campuses matches that search<a href="${universityData.root_url}/campuses">View all campuses</a></p>`}
+    ${results.campuses.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join("")}
+    ${results.campuses.length ? '</ul>' : '' }
+            <h2 class="search-overlay__section-title">Events</h2>
+            ${results.events.length ? '<ul class="link-list min-list">' : '<p>No events matches that search</p>'}
+    ${results.events.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join("")}
+    ${results.events.length ? '</ul>' : '' }
+          </div>
+        </div>
+      `);
+      this.isSpinnerVisible = false;
+    })
+    // v2
+  //   $.when(
+  //     $.getJSON(universityData.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.val()),
+  //     $.getJSON(universityData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.val()))
+  //     .then((posts, pages) => {
+  //     var combinedResults = posts[0].concat(pages[0])
+  //     this.resultsDiv.html(`
+  //   <h2 class="search-overlay__section-title">General Information</h2>
+  //   ${combinedResults.length ? '<ul class="link-list min-list">' : '<p>No general information matches that search</p>'}
+  //   ${combinedResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a> ${item.type == 'post' ? `by ${item.authorName}` : ''}</li>`).join("")}
+  //   ${combinedResults.length ? '</ul>' : '' }
+  //   `
+  // )
+  // this.isSpinnerVisible = false
+  //   }, () => {
+  //     this.resultsDiv.html('<p>Unexpected Error, Please try again</p>')
+  //   });
+    //v1
     // $.getJSON(universityData.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.val(), posts => {
     //   $.getJSON(universityData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.val(), pages => {
     //     var combinedResults = posts.concat(pages)
