@@ -14,14 +14,13 @@ add_action('rest_api_init', 'university_custom_rest');
 
 function pageBanner($args = null)
 {
-    if (isset($args['title'])) {
+    if (!isset($args['title'])) {
         $args['title'] = get_the_title();
-        echo get_the_title();
     }
-    if (isset($args['subtitle'])) {
+    if (!isset($args['subtitle'])) {
         $args['subtitle'] = get_field('page_banner_subtitle');
     }
-    if (isset($args['photo'])) {
+    if (!isset($args['photo'])) {
         if (get_field('page_banner_background_image')) {
             $args['photo'] = get_field('page_banner_background_image')['sizes']['pageBanner'];
         } else {
