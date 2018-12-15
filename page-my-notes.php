@@ -25,7 +25,7 @@ get_header();
           <input class="note-title-field" type="text" value="<?php echo esc_attr(get_the_title()); ?>">
           <span class="edit-note"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</span>
           <span class="delete-note"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete</span>
-          <textarea name="" id="" cols="30" rows="10"><?php echo esc_attr(get_the_content()); ?></textarea>
+          <textarea><?php echo esc_attr(get_the_content()); ?></textarea>
         </li>
       <?php
       } ?>
