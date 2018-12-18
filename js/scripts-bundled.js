@@ -95,6 +95,18 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 /***/ }),
 
+/***/ "./js/modules/Like.js":
+/*!****************************!*\
+  !*** ./js/modules/Like.js ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = void 0;\n\nvar _jquery = _interopRequireDefault(__webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\nvar Like =\n/*#__PURE__*/\nfunction () {\n  function Like() {\n    _classCallCheck(this, Like);\n\n    this.events();\n  }\n\n  _createClass(Like, [{\n    key: \"events\",\n    value: function events() {\n      (0, _jquery.default)(\".like-box\").on(\"click\", this.ourClickDispatcher.bind(this));\n    } //methods\n\n  }, {\n    key: \"ourClickDispatcher\",\n    value: function ourClickDispatcher() {\n      if ((0, _jquery.default)(\".like-box\").data('exists') == 'yes') {\n        this.deleteLike();\n      } else {\n        this.createLike();\n      }\n    }\n  }, {\n    key: \"createLike\",\n    value: function createLike() {\n      alert('create like');\n    }\n  }, {\n    key: \"deleteLike\",\n    value: function deleteLike() {\n      alert('delete like');\n    }\n  }]);\n\n  return Like;\n}();\n\nvar _default = Like;\nexports.default = _default;\n\n//# sourceURL=webpack:///./js/modules/Like.js?");
+
+/***/ }),
+
 /***/ "./js/modules/MobileMenu.js":
 /*!**********************************!*\
   !*** ./js/modules/MobileMenu.js ***!
@@ -139,7 +151,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _jquery = _interopRequireDefault(__webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\"));\n\nvar _slickCarousel = _interopRequireDefault(__webpack_require__(/*! slick-carousel */ \"./node_modules/slick-carousel/slick/slick.js\"));\n\nvar _MobileMenu = _interopRequireDefault(__webpack_require__(/*! ./modules/MobileMenu */ \"./js/modules/MobileMenu.js\"));\n\nvar _HeroSlider = _interopRequireDefault(__webpack_require__(/*! ./modules/HeroSlider */ \"./js/modules/HeroSlider.js\"));\n\nvar _GoogleMap = _interopRequireDefault(__webpack_require__(/*! ./modules/GoogleMap */ \"./js/modules/GoogleMap.js\"));\n\nvar _Search = _interopRequireDefault(__webpack_require__(/*! ./modules/Search */ \"./js/modules/Search.js\"));\n\nvar _MyNotes = _interopRequireDefault(__webpack_require__(/*! ./modules/MyNotes */ \"./js/modules/MyNotes.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n// 3rd party packages from NPM\n// Our modules / classes\n// Instantiate a new object using our modules/classes\nvar mobileMenu = new _MobileMenu.default();\nvar heroSlider = new _HeroSlider.default();\nvar googleMap = new _GoogleMap.default();\nvar search = new _Search.default();\nvar mynotes = new _MyNotes.default();\n\n//# sourceURL=webpack:///./js/scripts.js?");
+eval("\n\nvar _jquery = _interopRequireDefault(__webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\"));\n\nvar _slickCarousel = _interopRequireDefault(__webpack_require__(/*! slick-carousel */ \"./node_modules/slick-carousel/slick/slick.js\"));\n\nvar _MobileMenu = _interopRequireDefault(__webpack_require__(/*! ./modules/MobileMenu */ \"./js/modules/MobileMenu.js\"));\n\nvar _HeroSlider = _interopRequireDefault(__webpack_require__(/*! ./modules/HeroSlider */ \"./js/modules/HeroSlider.js\"));\n\nvar _GoogleMap = _interopRequireDefault(__webpack_require__(/*! ./modules/GoogleMap */ \"./js/modules/GoogleMap.js\"));\n\nvar _Search = _interopRequireDefault(__webpack_require__(/*! ./modules/Search */ \"./js/modules/Search.js\"));\n\nvar _MyNotes = _interopRequireDefault(__webpack_require__(/*! ./modules/MyNotes */ \"./js/modules/MyNotes.js\"));\n\nvar _Like = _interopRequireDefault(__webpack_require__(/*! ./modules/Like */ \"./js/modules/Like.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n// 3rd party packages from NPM\n// Our modules / classes\n// Instantiate a new object using our modules/classes\nvar mobileMenu = new _MobileMenu.default();\nvar heroSlider = new _HeroSlider.default();\nvar googleMap = new _GoogleMap.default();\nvar search = new _Search.default();\nvar mynotes = new _MyNotes.default();\nvar like = new _Like.default();\n\n//# sourceURL=webpack:///./js/scripts.js?");
 
 /***/ }),
 
