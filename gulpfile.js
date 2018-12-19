@@ -32,6 +32,7 @@ gulp.task('scripts', function(callback) {
 gulp.task('watch', function() {
   browserSync.init({
     notify: false,
+    port: 3002,
     proxy: settings.urlToPreview,
     ghostMode: false
   });
