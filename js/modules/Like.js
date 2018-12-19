@@ -10,6 +10,7 @@ class Like {
   }
 
   //methods
+<<<<<<< HEAD
   ourClickDispatcher(e) {
     var currentLikeBox = $(e.target).closest(".like-box");
     if(currentLikeBox.attr('data-exists') == 'yes') {
@@ -59,6 +60,22 @@ class Like {
         console.log(error)
       }
     });
+=======
+  ourClickDispatcher() {
+    if($(".like-box").data('exists') == 'yes') {
+      this.deleteLike();
+    } else {
+      this.createLike()
+    }
+  }
+
+  createLike() {
+    alert('create like')
+  }
+
+  deleteLike() {
+    alert('delete like')
+>>>>>>> 8de261c6d943244f39ed1f627a5ac04bdecadff3
   }
 }
 
